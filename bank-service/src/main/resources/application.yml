@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: bank-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+bank:
+  welcome-message: "Welcome to Bank Service (local config)"
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

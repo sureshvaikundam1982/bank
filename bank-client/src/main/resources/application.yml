@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bank-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+    instances:
+      bankService:
+        base-config: default
